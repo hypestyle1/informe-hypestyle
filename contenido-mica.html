@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hypestyle — Ideas de Contenido</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --bg-2: #f7f7f7;
+      --bg-3: #f0f0f0;
+      --text: #0a0a0a;
+      --text-secondary: #555555;
+      --text-muted: #999999;
+      --border: #e0e0e0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── COVER PAGE ── */
+    .cover {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 72px 80px;
+      page-break-after: always;
+      border-bottom: 1px solid var(--border);
+    }
+    .cover-logo img {
+      height: 40px;
+    }
+    .cover-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 0;
+    }
+    .cover-label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+    .cover-title {
+      font-size: 56px;
+      font-weight: 300;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 32px;
+    }
+    .cover-title strong {
+      font-weight: 600;
+    }
+    .cover-desc {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 480px;
+      line-height: 1.7;
+    }
+    .cover-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 2;
+    }
+    .cover-meta span {
+      color: var(--text-secondary);
+    }
+
+    /* ── INTRO PAGE ── */
+    .intro {
+      padding: 72px 80px;
+      page-break-after: always;
+    }
+    .intro-title {
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+    }
+    .intro-body {
+      font-size: 14px;
+      color: var(--text-secondary);
+      max-width: 600px;
+      line-height: 1.8;
+      margin-bottom: 48px;
+    }
+    .intro-body strong { color: var(--text); }
+
+    .index-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .index-table thead th {
+      text-align: left;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-weight: 400;
+    }
+    .index-table tbody td {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      vertical-align: top;
+    }
+    .index-table tbody tr:last-child td { border-bottom: none; }
+    .idx-num { color: var(--text-muted); width: 40px; }
+    .idx-format { font-weight: 500; }
+    .idx-type { color: var(--text-secondary); width: 180px; }
+    .idx-seg { color: var(--text-secondary); }
+    .priority-tag {
+      display: inline-block;
+      font-size: 9px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      color: var(--text-muted);
+    }
+    .priority-tag.now {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+    }
+
+    /* ── AD PAGES ── */
+    .ad-page {
+      padding: 64px 80px 72px;
+      page-break-after: always;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .ad-page:last-of-type { page-break-after: auto; }
+
+    .ad-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 2px solid var(--text);
+    }
+    .ad-num-label {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+    .ad-title {
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .ad-meta {
+      text-align: right;
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 2;
+    }
+    .ad-concept {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 36px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    .ad-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      flex: 1;
+    }
+    .ad-body.single {
+      grid-template-columns: 1fr;
+    }
+
+    .block {
+      margin-bottom: 28px;
+    }
+    .block-label {
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+    .block-content {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.8;
+    }
+    .block-content.script {
+      background: var(--bg-2);
+      padding: 16px 20px;
+      font-family: 'Courier New', 'Lucida Console', monospace;
+      font-size: 12px;
+      white-space: pre-wrap;
+      border-left: 3px solid var(--border);
+      color: var(--text-secondary);
+    }
+    .block-content .copy-line {
+      display: block;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .block-content .copy-note {
+      display: block;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .cta-pill {
+      font-size: 11px;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 2px;
+      letter-spacing: 0.03em;
+    }
+    .cta-pill.primary {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+    }
+
+    .ad-data {
+      margin-top: auto;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .ad-data strong { color: var(--text-secondary); }
+
+    .variants-box {
+      background: var(--bg-3);
+      padding: 16px 20px;
+      margin-top: 8px;
+    }
+    .variant-item {
+      font-size: 12px;
+      color: var(--text-secondary);
+      padding: 4px 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.6;
+    }
+    .variant-item:last-child { border-bottom: none; }
+    .variant-item strong { color: var(--text); }
+
+    /* ── PRODUCTION GUIDE ── */
+    .guide-page {
+      padding: 64px 80px 72px;
+      page-break-after: always;
+    }
+    .guide-title {
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+    .guide-sub {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+    }
+    .guide-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .guide-table thead th {
+      text-align: left;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      font-weight: 400;
+    }
+    .guide-table tbody td {
+      padding: 14px 12px;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      vertical-align: top;
+    }
+    .guide-table tbody tr:last-child td { border-bottom: none; }
+    .guide-table .week-now { font-weight: 600; }
+    .guide-table .col-muted { color: var(--text-secondary); }
+
+    /* ── GENERAL NOTES PAGE ── */
+    .notes-page {
+      padding: 64px 80px 72px;
+    }
+    .notes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 40px;
+    }
+    .note-card {
+      padding: 24px;
+      border: 1px solid var(--border);
+    }
+    .note-card-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 11px;
+    }
+    .note-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    .note-card ul li {
+      font-size: 12px;
+      color: var(--text-secondary);
+      padding: 5px 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.5;
+    }
+    .note-card ul li:last-child { border-bottom: none; }
+    .note-card ul li::before {
+      content: "— ";
+      color: var(--text-muted);
+    }
+    .note-card ul li strong { color: var(--text); }
+
+    /* ── FOOTER ON PAGES ── */
+    .page-footer {
+      position: fixed;
+      bottom: 32px;
+      left: 80px;
+      right: 80px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    @media print {
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .cover { page-break-after: always; }
+      .ad-page { page-break-after: always; }
+      .guide-page { page-break-after: always; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-logo">
+    <img src="imagenes/logo-hypestyle-2026 (1).png" alt="Hypestyle">
+  </div>
+  <div class="cover-body">
+    <div class="cover-label">Ideas de contenido — Meta Ads</div>
+    <h1 class="cover-title">13 formatos.<br><strong>Copy completo.</strong></h1>
+    <p class="cover-desc">Brief creativo para producción de contenido. Cada formato incluye hook de los primeros 3 segundos, guión completo, CTA y descripción visual de producción.</p>
+  </div>
+  <div class="cover-meta">
+    Para: <span>Mica — Content Manager</span><br>
+    Marca: <span>@hypestylearg</span><br>
+    Fecha: <span>7 de abril de 2026</span>
+  </div>
+</div>
+
+<!-- INTRO + ÍNDICE -->
+<div class="intro">
+  <h2 class="intro-title">Cómo usar este documento</h2>
+  <p class="intro-body">
+    Cada página es un brief de producción listo para ejecutar. El orden en el índice es por <strong>complejidad de producción</strong> — de menor a mayor. Empezar por los formatos marcados como <strong>"Esta semana"</strong> para generar contenido rápido y empezar a testear.<br><br>
+    El tono base en todos los formatos es el mismo: <strong>directo, urbano, sin relleno.</strong> Cada segundo que no suma, resta. Si en la primera lectura del guión algo suena a "anuncio de tele", hay que cortarlo.
+  </p>
+
+  <table class="index-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Formato</th>
+        <th>Tipo</th>
+        <th>Segmento</th>
+        <th>Producción</th>
+        <th>Cuándo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="idx-num">11</td>
+        <td class="idx-format">Post de Foto</td>
+        <td class="idx-type">1 imagen · Feed 4:5</td>
+        <td class="idx-seg">Mixto 18–30</td>
+        <td>Muy baja</td>
+        <td><span class="priority-tag now">Esta semana</span></td>
+      </tr>
+      <tr>
+        <td class="idx-num">06</td>
+        <td class="idx-format">Carrusel</td>
+        <td class="idx-type">6 frames · Feed</td>
+        <td class="idx-seg">Mixto 18–30</td>
+        <td>Muy baja</td>
+        <td><span class="priority-tag now">Esta semana</span></td>
+      </tr>
+      <tr>
+        <td class="idx-num">04</td>
+        <td class="idx-format">Text to Speech</td>
+        <td class="idx-type">Video 14 seg · Reels</td>
+        <td class="idx-seg">Hombres 18–26</td>
+        <td>Baja</td>
+        <td><span class="priority-tag now">Esta semana</span></td>
+      </tr>
+      <tr>
+        <td class="idx-num">01</td>
+        <td class="idx-format">POV</td>
+        <td class="idx-type">Video 12 seg · Reels</td>
+        <td class="idx-seg">Hombres 18–28</td>
+        <td>Baja</td>
+        <td><span class="priority-tag">Semana 1–2</span></td>
+      </tr>
+      <tr>
+        <td class="idx-num">08</td>
+        <td class="idx-format">Video Producto</td>
+        <td class="idx-type">Video 10 seg · Feed</td>
+        <td class="idx-seg">Hombres 18–28</td>
+        <td>Baja-media</td>
+        <td><span class="priority-tag">Semana 1–2</span></td>
+      </tr>
+      <tr>
+        <td class="idx-num">02</td>
+        <td class="idx-format">Respuesta a comentario</td>
+        <td class="idx-type">Video 18 seg · Reels</td>
+        <td class="idx-seg">Retargeting 18–28</td>
+        <td>Media</td>
+        <td><span class="priority-tag">Semana 2</span></td>
+      </tr>
+      <tr>
+        <td class="idx-num">03</td>
+        <td class="idx-format">Green screen</td>
+        <td class="idx-type">Video 22 seg · Reels</td>
+        <td class="idx-seg">Mixto 18–30</td>
+        <td>Media</td>
+        <td><span class="priority-tag">Semana 2</span></td>
+      </tr>
+      <tr>
+        <td class="idx-num">07</td>
+        <td class="idx-format">Voice over</td>
+        <td class="idx-type">Video 22 seg · Reels</td>
+        <td class="idx-seg">Mujeres 18–34</td>
+        <td>Media</td>
+        <td><span class="priority-tag">Semana 2</span></td>
+      </tr>
+      <tr>
+        <td class="idx-num">10</td>
+        <td class="idx-format">Carrusel con video</td>
+        <td class="idx-type">5 frames · Feed</td>
+        <td class="idx-seg">Mixto 18–30</td>
+        <td>Media</td>
+        <td><span class="priority-tag">Semana 2–3</span></td>
+      </tr>
+      <tr>
+        <td class="idx-num">05</td>
+        <td class="idx-format">Video hablado</td>
+        <td class="idx-type">Video 28 seg · Reels</td>
+        <td class="idx-seg">Mixto 18–30</td>
+        <td>Media-alta</td>
+        <td><span class="priority-tag">Semana 3</span></td>
+      </tr>
+      <tr>
+        <td class="idx-num">12</td>
+        <td class="idx-format">POV + Acting</td>
+        <td class="idx-type">Video 20 seg · Reels</td>
+        <td class="idx-seg">Hombres 18–26</td>
+        <td>Media-alta</td>
+        <td><span class="priority-tag">Semana 3</span></td>
+      </tr>
+      <tr>
+        <td class="idx-num">09</td>
+        <td class="idx-format">Testimonial / UGC</td>
+        <td class="idx-type">Video 30 seg · Reels</td>
+        <td class="idx-seg">Lookalike / retargeting</td>
+        <td>Alta</td>
+        <td><span class="priority-tag">Semana 3–4</span></td>
+      </tr>
+      <tr>
+        <td class="idx-num">13</td>
+        <td class="idx-format">Video humor TikTok</td>
+        <td class="idx-type">Video 20 seg · Reels</td>
+        <td class="idx-seg">18–24 mixto</td>
+        <td>Muy alta</td>
+        <td><span class="priority-tag">Semana 4+</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- AD 11: POST DE FOTO (primero por prioridad) -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="ad-page">
+  <div class="ad-header">
+    <div>
+      <div class="ad-num-label">Formato 11 · Esta semana</div>
+      <div class="ad-title">Post de Foto</div>
+    </div>
+    <div class="ad-meta">
+      1 imagen · Feed Instagram + Facebook<br>
+      Ratio: 4:5<br>
+      Segmento: Mixto 18–30
+    </div>
+  </div>
+  <p class="ad-concept">Una sola imagen, sin texto en el creativo. El copy del anuncio hace todo el trabajo. La foto tiene que ser lo suficientemente fuerte para competir sola.</p>
+
+  <div class="ad-body">
+    <div>
+      <div class="block">
+        <div class="block-label">Copy del anuncio (texto sobre la imagen)</div>
+        <div class="block-content">
+          <span class="copy-line">Sale activo.</span>
+          <span class="copy-line">Remeras, hoodies y jorts — hasta 70% off.</span>
+          <span class="copy-line">Envíos a domicilio. Cuotas disponibles.</span>
+          <span class="copy-line" style="margin-top:8px">hypestyle.com.ar</span>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Headline</div>
+        <div class="block-content">
+          <span class="copy-line" style="font-size:14px">Hasta 70% off en Hypestyle.</span>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Botón CTA</div>
+        <div class="cta-row">
+          <span class="cta-pill primary">Comprar ahora</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="block">
+        <div class="block-label">La imagen — qué tiene que mostrar</div>
+        <div class="block-content">
+          <span class="copy-note">— Modelo en entorno urbano real: vereda, paredón, escalera</span>
+          <span class="copy-note">— Un solo producto por imagen. No mezclar.</span>
+          <span class="copy-note">— Sin texto superpuesto en la foto</span>
+          <span class="copy-note">— Luz natural, evitar estudio para streetwear</span>
+          <span class="copy-note">— Ratio 4:5 para mayor presencia en el feed</span>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Variantes a testear</div>
+        <div class="variants-box">
+          <div class="variant-item"><strong>A:</strong> Modelo masculino, prenda oscura, entorno con luz</div>
+          <div class="variant-item"><strong>B:</strong> Modelo femenina, prenda clara, entorno con contraste</div>
+          <div class="variant-item"><strong>C:</strong> Flat lay — prenda sola sobre fondo neutro, sin modelo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-data">
+    <strong>Por qué funciona:</strong> El anuncio 1 del conjunto "Regular" logró CTR 1.98% — el segundo más alto de toda la cuenta. El formato de foto limpia con copy directo sigue funcionando cuando la imagen es fuerte.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- AD 06: CARRUSEL -->
+<!-- ═══════════════════════════════════════ -->
+<div class="ad-page">
+  <div class="ad-header">
+    <div>
+      <div class="ad-num-label">Formato 06 · Esta semana</div>
+      <div class="ad-title">Carrusel</div>
+    </div>
+    <div class="ad-meta">
+      6 frames · Feed Instagram + Facebook<br>
+      Segmento: Mixto 18–30
+    </div>
+  </div>
+  <p class="ad-concept">Frame 1: solo el número, sin producto, sin logo. La ausencia de contexto genera tensión. El usuario desliza para ver de qué se trata.</p>
+
+  <div class="ad-body">
+    <div>
+      <div class="block">
+        <div class="block-label">Frame 1 — Hook (lo que ve antes de deslizar)</div>
+        <div class="block-content script">Fondo negro liso.
+Tipografía Golos Text Bold, blanco, centrado:
+
+"70% off."
+
+Nada más. Sin logo. Sin producto. Sin descripción.</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Copy del anuncio (texto sobre el carrusel)</div>
+        <div class="block-content">
+          <span class="copy-line">Sale activo en Hypestyle.</span>
+          <span class="copy-line">Remeras, hoodies y jorts — hasta 70% off.</span>
+          <span class="copy-line">Envíos a domicilio. Cuotas disponibles.</span>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Botón CTA</div>
+        <div class="cta-row">
+          <span class="cta-pill primary">Comprar ahora</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="block">
+        <div class="block-label">Estructura frame a frame</div>
+        <div class="variants-box">
+          <div class="variant-item"><strong>F1:</strong> Fondo negro — "70% off." — sin nada más</div>
+          <div class="variant-item"><strong>F2:</strong> Producto más vendido — precio tachado + precio sale</div>
+          <div class="variant-item"><strong>F3:</strong> Segundo producto — mismo formato</div>
+          <div class="variant-item"><strong>F4:</strong> Macro de tela / costuras — solo calidad, sin precio</div>
+          <div class="variant-item"><strong>F5:</strong> Lifestyle — modelo en locación urbana, sin texto</div>
+          <div class="variant-item"><strong>F6:</strong> Fondo negro — "hypestyle.com.ar" + CTA → Comprar ahora</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Notas de producción</div>
+        <div class="block-content">
+          <span class="copy-note">— Tipografía Golos Text en todos los frames</span>
+          <span class="copy-note">— No mezclar estilos fotográficos entre frames</span>
+          <span class="copy-note">— El F1 es el más importante — si no engancha, no desliza</span>
+          <span class="copy-note">— Precio tachado tiene que ser visible: ~~$22.000~~ $13.200</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-data">
+    <strong>Por qué funciona:</strong> El anuncio 4 del conjunto "Sale" generó 8 compras con CPR $5.879 — segundo más bajo de toda la cuenta. El carrusel permite múltiples productos en un solo anuncio.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- AD 04: TEXT TO SPEECH -->
+<!-- ═══════════════════════════════════════ -->
+<div class="ad-page">
+  <div class="ad-header">
+    <div>
+      <div class="ad-num-label">Formato 04 · Esta semana</div>
+      <div class="ad-title">Text to Speech</div>
+    </div>
+    <div class="ad-meta">
+      Video 14 seg · Reels + Stories<br>
+      Segmento: Hombres 18–26, amplio<br>
+      Tool: CapCut
+    </div>
+  </div>
+  <p class="ad-concept">Voz IA sobre video de producto. Producción casi cero — ideal para generar muchas creatividades rápido y testear. Sin presentador, sin locación, sin actores.</p>
+
+  <div class="ad-body">
+    <div>
+      <div class="block">
+        <div class="block-label">Hook — segundos 0 a 3</div>
+        <div class="block-content script">[Plano detalle: estampado de la remera, moviéndose suavemente]
+
+VOZ TTS (arranca en el segundo 0, sin pausa):
+"Esto acaba de entrar."</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Guión completo — VOZ TTS</div>
+        <div class="block-content script">[Corte. Producto completo — frente y dorso, 2 tomas rápidas]
+"Hypestyle. Streetwear de Buenos Aires."
+
+[Corte. Segundo producto]
+"Sale activo — hasta setenta por ciento off."
+
+[Corte. Tercera prenda o detalle de calidad]
+"Envíos a todo el país. Y al mundo."
+
+[Logo centrado sobre fondo negro]
+"hypestyle.com.ar"</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Botón CTA</div>
+        <div class="cta-row">
+          <span class="cta-pill primary">Comprar ahora</span>
+          <span class="cta-pill">Verbal: "hypestyle.com.ar"</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="block">
+        <div class="block-label">Producción — paso a paso en CapCut</div>
+        <div class="variants-box">
+          <div class="variant-item"><strong>Voz:</strong> "Luca" o "Valentina" (español latinoamericano). Velocidad +10%.</div>
+          <div class="variant-item"><strong>Cortes:</strong> cada 2–3 segundos máximo. Nunca un plano más largo.</div>
+          <div class="variant-item"><strong>Subtítulos:</strong> auto-generados, tipografía blanca, borde negro, tamaño grande.</div>
+          <div class="variant-item"><strong>Música:</strong> beat instrumental sin letra, volumen al 25%.</div>
+          <div class="variant-item"><strong>Productos:</strong> mínimo 3, máximo 5. Solo los que tienen stock.</div>
+          <div class="variant-item"><strong>Ratio:</strong> 9:16 vertical. No cuadrado.</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Variantes a testear</div>
+        <div class="variants-box">
+          <div class="variant-item"><strong>A:</strong> Voz masculina ("Luca") — segmento hombres 18–26</div>
+          <div class="variant-item"><strong>B:</strong> Voz femenina ("Valentina") — testear si mejora en mujeres</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-data">
+    <strong>Por qué funciona:</strong> Formato de producción mínima — permite generar 5–10 creatividades en un día. Ideal para rotar constantemente y evitar la saturación de audiencia (frecuencia >2.0).
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- AD 01: POV -->
+<!-- ═══════════════════════════════════════ -->
+<div class="ad-page">
+  <div class="ad-header">
+    <div>
+      <div class="ad-num-label">Formato 01 · Semana 1–2</div>
+      <div class="ad-title">POV Unboxing</div>
+    </div>
+    <div class="ad-meta">
+      Video 12 seg · Reels + Stories<br>
+      Segmento: Hombres 18–28<br>
+      Placement: Reels principal
+    </div>
+  </div>
+  <p class="ad-concept">El espectador es quien recibe el pedido. Sin voz, sin texto, sin presentador — solo el sonido del packaging y el producto revelándose. La curiosidad hace el trabajo.</p>
+
+  <div class="ad-body">
+    <div>
+      <div class="block">
+        <div class="block-label">Hook — segundos 0 a 3</div>
+        <div class="block-content script">[Sin texto. Sin voz.]
+Plano subjetivo: manos abriendo una bolsa
+de tela negra con el logo Hypestyle.
+
+El sonido del packaging (crinkle del papel)
+es el único audio.</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Desarrollo — segundos 3 a 10</div>
+        <div class="block-content script">[Las manos sacan la prenda doblada.]
+[La despliegan lentamente.]
+[Plano detalle: el estampado o bordado en foco.]
+[Las manos la sostienen extendida — se ve el frente.]
+
+Sin texto. Sin voz. Solo el producto.</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Cierre — segundos 10 a 12</div>
+        <div class="block-content script">TEXTO EN PANTALLA (fade in):
+Tipografía Golos Text Bold, blanco sobre negro:
+
+"hypestyle.com.ar"</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">CTA</div>
+        <div class="cta-row">
+          <span class="cta-pill primary">Comprar ahora</span>
+          <span class="cta-pill">Sticker link en Stories</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="block">
+        <div class="block-label">Setup de grabación</div>
+        <div class="variants-box">
+          <div class="variant-item"><strong>Superficie:</strong> mesa de madera clara o mármol blanco</div>
+          <div class="variant-item"><strong>Luz:</strong> natural lateral. Si artificial, luz continua cálida desde un lado</div>
+          <div class="variant-item"><strong>Cámara:</strong> teléfono en mano — no trípode. Que se note que es real</div>
+          <div class="variant-item"><strong>Manos:</strong> limpias, sin accesorios llamativos</div>
+          <div class="variant-item"><strong>Packaging:</strong> el papel de seda interno tiene que verse bien presentado</div>
+          <div class="variant-item"><strong>Audio:</strong> el sonido del packaging es protagonista — grabar en silencio</div>
+          <div class="variant-item"><strong>Música:</strong> trending de Reels, volumen muy bajo (20–30%)</div>
+          <div class="variant-item"><strong>Subtítulos:</strong> no aplican. El silencio es intencional</div>
+          <div class="variant-item"><strong>Ratio:</strong> 9:16 vertical</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-data">
+    <strong>Por qué funciona:</strong> El formato POV es nativo de Reels — reduce la percepción de "anuncio" y aumenta el tiempo de visualización. Los conjuntos con creatividades nuevas bajaron el CPR hasta $6.682.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- AD 08: VIDEO PRODUCTO -->
+<!-- ═══════════════════════════════════════ -->
+<div class="ad-page">
+  <div class="ad-header">
+    <div>
+      <div class="ad-num-label">Formato 08 · Semana 1–2</div>
+      <div class="ad-title">Video Producto</div>
+    </div>
+    <div class="ad-meta">
+      Video 10 seg · Feed 1:1 o 4:5<br>
+      Segmento: Hombres 18–28<br>
+      Sin personas
+    </div>
+  </div>
+  <p class="ad-concept">El producto es el protagonista absoluto. Sin personas, sin voz. La prenda rota sobre fondo neutro — el estampado habla solo. Simple y directo.</p>
+
+  <div class="ad-body">
+    <div>
+      <div class="block">
+        <div class="block-label">Guión completo</div>
+        <div class="block-content script">[Plano detalle sobre fondo neutro blanco o negro]
+[Movimiento lento: la prenda gira, se muestra
+ el frente, el dorso, el detalle del estampado]
+
+Sin voz. Sin texto hasta el final.
+
+[Frame final — 2 segundos]:
+Nombre del producto.
+Precio.
+"hypestyle.com.ar"</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">CTA</div>
+        <div class="cta-row">
+          <span class="cta-pill primary">Comprar ahora</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="block">
+        <div class="block-label">Variantes a testear</div>
+        <div class="variants-box">
+          <div class="variant-item"><strong>A:</strong> Luz de estudio — fondo blanco, producto "limpio" y técnico</div>
+          <div class="variant-item"><strong>B:</strong> Luz ambiente cálida — fondo textura, look "editorial"</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Setup de grabación</div>
+        <div class="variants-box">
+          <div class="variant-item"><strong>Estabilidad:</strong> trípode o rig estable — impecable</div>
+          <div class="variant-item"><strong>Estampado:</strong> hacer un macro específico del detalle gráfico</div>
+          <div class="variant-item"><strong>Duración:</strong> corta (10 seg) para que el algoritmo lo muestre completo</div>
+          <div class="variant-item"><strong>Fondo:</strong> sin ruido — blanco o negro liso</div>
+          <div class="variant-item"><strong>Frame final:</strong> nombre del producto + precio, Golos Text</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-data">
+    <strong>Por qué funciona:</strong> El anuncio 3 de "Sale - creativos nuevos" logró CPR $2.355 — el segundo más bajo de toda la cuenta. El patrón ganador es simple: producto directo, sin distracción.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- AD 02: RESPUESTA A COMENTARIO -->
+<!-- ═══════════════════════════════════════ -->
+<div class="ad-page">
+  <div class="ad-header">
+    <div>
+      <div class="ad-num-label">Formato 02 · Semana 2</div>
+      <div class="ad-title">Respuesta a comentario</div>
+    </div>
+    <div class="ad-meta">
+      Video 18 seg · Reels + Stories<br>
+      Segmento: Retargeting 18–28<br>
+      Placement: Reels
+    </div>
+  </div>
+  <p class="ad-concept">El anuncio empieza pareciendo contenido orgánico. El overlay de un comentario de Instagram en el primer frame detiene el scroll — el usuario no procesa que es un anuncio hasta que ya está viendo el producto.</p>
+
+  <div class="ad-body">
+    <div>
+      <div class="block">
+        <div class="block-label">Hook — segundos 0 a 3</div>
+        <div class="block-content script">[Pantalla en negro. Aparece overlay de comentario:]
+
+💬  mati.gzz  "¿de dónde es la ropa?"
+
+[El comentario queda 1.5 seg antes del video.]</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Desarrollo — segundos 3 a 15</div>
+        <div class="block-content script">[Corte directo. Sin transición.]
+[Modelo caminando en Buenos Aires, con la prenda.]
+[Plano medio. Luz natural.]
+
+[A los 5 seg — texto en pantalla, Golos Text Regular:]
+"Buenos Aires."
+
+[Plano detalle de la prenda — tela, estampado, fit]
+
+[A los 9 seg — texto:]
+"Hypestyle."
+
+[Plano frontal. El modelo mira a cámara 1 segundo.]</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Cierre — segundos 15 a 18</div>
+        <div class="block-content script">TEXTO FINAL (Golos Text Bold):
+"hypestyle.com.ar"
+"Envíos a todo el país y al mundo."</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">CTA</div>
+        <div class="cta-row">
+          <span class="cta-pill primary">Ver más</span>
+          <span class="cta-pill">Deslizá (Stories)</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="block">
+        <div class="block-label">3 variantes de comentario a testear</div>
+        <div class="variants-box">
+          <div class="variant-item"><strong>A:</strong> "¿de dónde es la ropa?" → más awareness / descubrimiento</div>
+          <div class="variant-item"><strong>B:</strong> "¿mandan al interior?" → fricción logística</div>
+          <div class="variant-item"><strong>C:</strong> "¿cuánto cuesta el envío?" → mayor intención de compra</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Notas del overlay de comentario</div>
+        <div class="variants-box">
+          <div class="variant-item"><strong>Estilo:</strong> tiene que verse exactamente como un comentario real de Instagram</div>
+          <div class="variant-item"><strong>Usuario:</strong> nombre común, real. "mati.gzz", "sofi_rv" — no una cuenta obvia</div>
+          <div class="variant-item"><strong>Corte:</strong> abrupto, sin transición suave — el contraste llama la atención</div>
+          <div class="variant-item"><strong>Locación:</strong> vereda, escalera, patio urbano. No estudio.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-data">
+    <strong>Por qué funciona:</strong> El conjunto de retargeting actual gastó $18.523 con 0 conversiones. El problema no es la audiencia — es que el usuario reconoce el anuncio y lo ignora. Este formato rompe ese patrón.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- AD 03: GREEN SCREEN -->
+<!-- ═══════════════════════════════════════ -->
+<div class="ad-page">
+  <div class="ad-header">
+    <div>
+      <div class="ad-num-label">Formato 03 · Semana 2</div>
+      <div class="ad-title">Green screen</div>
+    </div>
+    <div class="ad-meta">
+      Video 22 seg · Reels + Feed<br>
+      Segmento: Mixto 18–30<br>
+      Producción: CapCut / similar
+    </div>
+  </div>
+  <p class="ad-concept">El presentador aparece recortado sobre una foto del producto con el precio visible. El precio en el fondo activa el interés antes de que el usuario procese que es un anuncio.</p>
+
+  <div class="ad-body">
+    <div>
+      <div class="block">
+        <div class="block-label">Hook — segundos 0 a 3</div>
+        <div class="block-content script">[Presentador ya en cuadro. Fondo: foto del producto
+con el precio grande y visible.]
+
+Sin intro. Arranca hablando directamente:
+
+VOZ: "Esto está con descuento ahora mismo."
+[Señala hacia atrás, al producto en el fondo.]</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Desarrollo — segundos 3 a 18</div>
+        <div class="block-content script">VOZ (tono informativo, no vendedor):
+"Es de Hypestyle — marca de Buenos Aires.
+Esta [remera / hoodie] está a [precio] pesos.
+Envío a domicilio, a todo el país."
+
+[Pausa de 1 segundo]
+
+"También mandan al exterior — DHL."
+
+[El fondo cambia: aparece segunda prenda con precio]
+
+"Y esto también está en sale."</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Cierre — segundos 18 a 22</div>
+        <div class="block-content script">VOZ: "El link está acá."
+[Señala hacia arriba — el CTA nativo del Reel]
+
+TEXTO EN PANTALLA:
+"hypestyle.com.ar"</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">CTA</div>
+        <div class="cta-row">
+          <span class="cta-pill primary">Comprar ahora</span>
+          <span class="cta-pill">Verbal: señala el link</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="block">
+        <div class="block-label">Setup técnico</div>
+        <div class="variants-box">
+          <div class="variant-item"><strong>Fondo green screen:</strong> foto del producto en alta res, precio legible en 2 seg</div>
+          <div class="variant-item"><strong>Precio:</strong> tamaño mínimo 80px en la composición final</div>
+          <div class="variant-item"><strong>Presentador:</strong> alguien natural en cámara. No locutor, no modelo.</div>
+          <div class="variant-item"><strong>Ropa del presentador:</strong> prenda Hypestyle o ropa neutra</div>
+          <div class="variant-item"><strong>Subtítulos:</strong> siempre activados</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">3 versiones a generar</div>
+        <div class="variants-box">
+          <div class="variant-item"><strong>V1:</strong> Fondo con hoodie oscura — segmento masculino</div>
+          <div class="variant-item"><strong>V2:</strong> Fondo con remera blanca — segmento femenino</div>
+          <div class="variant-item"><strong>V3:</strong> Fondo con screenshot del sitio web con precios — conversión directa</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-data">
+    <strong>Por qué funciona:</strong> Replica el contexto de "Sale - creativos nuevos" (mejor volumen: 29 compras, CPR $6.682) con una capa humana que aumenta la confianza. El precio visible desde el segundo 0 activa el interés.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- AD 07: VOICE OVER -->
+<!-- ═══════════════════════════════════════ -->
+<div class="ad-page">
+  <div class="ad-header">
+    <div>
+      <div class="ad-num-label">Formato 07 · Semana 2 · Mujeres</div>
+      <div class="ad-title">Voice over</div>
+    </div>
+    <div class="ad-meta">
+      Video 22 seg · Reels + Stories<br>
+      Segmento: Mujeres 18–34<br>
+      Voz femenina en off
+    </div>
+  </div>
+  <p class="ad-concept">Video de producto o lifestyle con narración femenina en off. Sin presentador visible. Dirigido al segmento más infra-presupuestado de la cuenta — misma eficiencia que los hombres, 6× menos inversión.</p>
+
+  <div class="ad-body">
+    <div>
+      <div class="block">
+        <div class="block-label">Hook — segundos 0 a 3</div>
+        <div class="block-content script">[Modelo caminando — plano medio, luz natural, calle]
+
+VOZ OFF (femenina, tono calmado y seguro):
+"Esto es lo que tenemos ahora."</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Guión completo</div>
+        <div class="block-content script">[Plano detalle del producto]
+
+"Streetwear que se usa de verdad. No para la foto."
+
+[Modelo caminando, plano general]
+
+"Hypestyle. Buenos Aires."
+
+[Pantalla final con logo y URL]
+
+"hypestyle.com.ar"</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">CTA</div>
+        <div class="cta-row">
+          <span class="cta-pill primary">Comprar ahora</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="block">
+        <div class="block-label">Cómo grabar la voz</div>
+        <div class="variants-box">
+          <div class="variant-item"><strong>Tono:</strong> conversacional, no locutada. Como si le hablara a una amiga.</div>
+          <div class="variant-item"><strong>Micro:</strong> auriculares con micrófono integrado sirven — no necesita estudio</div>
+          <div class="variant-item"><strong>Ambiente:</strong> grabar en un lugar silencioso, no en la calle</div>
+          <div class="variant-item"><strong>Velocidad:</strong> pausa natural entre frases — no apurar</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Notas del video</div>
+        <div class="variants-box">
+          <div class="variant-item"><strong>Modelo:</strong> femenina, usando la prenda en contexto urbano real</div>
+          <div class="variant-item"><strong>Estilo:</strong> no una pasarela — la prenda en uso, en movimiento</div>
+          <div class="variant-item"><strong>Subtítulos:</strong> siempre activados</div>
+          <div class="variant-item"><strong>Música:</strong> baja, no competir con la voz (máx 20%)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-data">
+    <strong>Por qué funciona:</strong> Las mujeres 18–34 tienen CPR $11.970 — idéntico al masculino — pero reciben solo el 15.8% del presupuesto. Un creativo específico para ese segmento desbloquea ese volumen sin deteriorar la eficiencia.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- AD 10: CARRUSEL CON VIDEO -->
+<!-- ═══════════════════════════════════════ -->
+<div class="ad-page">
+  <div class="ad-header">
+    <div>
+      <div class="ad-num-label">Formato 10 · Semana 2–3</div>
+      <div class="ad-title">Carrusel con video</div>
+    </div>
+    <div class="ad-meta">
+      5 frames (1 video + 4 imágenes) · Feed<br>
+      Segmento: Mixto 18–30
+    </div>
+  </div>
+  <p class="ad-concept">Primer frame en video para capturar la atención. El video entra en loop si el usuario no desliza — genera retención. Los frames siguientes muestran el catálogo en imagen.</p>
+
+  <div class="ad-body">
+    <div>
+      <div class="block">
+        <div class="block-label">Frame 1 — Video (hook, 5–8 seg)</div>
+        <div class="block-content script">[Modelo usando la prenda — movimiento, calle]
+Sin texto. Solo el producto en uso.
+
+El video entra en loop si el usuario no desliza.
+Ese loop genera retención — Meta lo registra.</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Frames 2 a 5 — Imágenes</div>
+        <div class="variants-box">
+          <div class="variant-item"><strong>F2:</strong> Flat lay — prenda sobre fondo blanco, precio visible</div>
+          <div class="variant-item"><strong>F3:</strong> Variante de color o producto complementario del drop</div>
+          <div class="variant-item"><strong>F4:</strong> Detalle — costuras, etiqueta, estampado interior</div>
+          <div class="variant-item"><strong>F5:</strong> Fondo negro — "hypestyle.com.ar" + botón Comprar</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">CTA</div>
+        <div class="cta-row">
+          <span class="cta-pill primary">Comprar ahora</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="block">
+        <div class="block-label">Notas de producción</div>
+        <div class="variants-box">
+          <div class="variant-item"><strong>Video F1:</strong> tiene que funcionar solo — si no convence en 3 seg, no desliza</div>
+          <div class="variant-item"><strong>Consistencia:</strong> las imágenes tienen que tener el mismo estilo que el video</div>
+          <div class="variant-item"><strong>Sin voz:</strong> el video del F1 idealmente es sin voz — solo música ambiental</div>
+          <div class="variant-item"><strong>Plano dinámico:</strong> evitar planos estáticos en el video — movimiento siempre</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-data">
+    <strong>Por qué funciona:</strong> El conjunto "Sale" generó 28 compras con carrusel estático. Agregar un frame de video al inicio aumenta el tiempo de reproducción — Meta lo usa como señal de relevancia para bajar el CPM.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- AD 05: VIDEO HABLADO -->
+<!-- ═══════════════════════════════════════ -->
+<div class="ad-page">
+  <div class="ad-header">
+    <div>
+      <div class="ad-num-label">Formato 05 · Semana 3</div>
+      <div class="ad-title">Video hablado</div>
+    </div>
+    <div class="ad-meta">
+      Video 28 seg · Reels + Feed<br>
+      Segmento: Mixto 18–30<br>
+      Alguien de la marca o colaborador
+    </div>
+  </div>
+  <p class="ad-concept">Alguien habla directo a cámara, sin guión aprendido de memoria. Arrancar en el medio de la acción — sin "hola", sin presentación. El usuario siente que llegó tarde a algo.</p>
+
+  <div class="ad-body">
+    <div>
+      <div class="block">
+        <div class="block-label">Hook — segundos 0 a 3</div>
+        <div class="block-content script">[Persona a cámara. Sin intro. Sin música de entrada.]
+[Empieza a hablar en el segundo 0.]
+
+VOZ: "Te cuento qué tiene Hypestyle
+con descuento ahora."</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Desarrollo — segundos 3 a 22</div>
+        <div class="block-content script">VOZ (sus propias palabras, estructura base):
+"Tienen una sale activa — [producto] a [precio].
+La calidad está buena: [UNA cosa concreta —
+ la tela, el peso del algodón, el fit]."
+
+[Pausa natural — 1 segundo]
+
+"Envían a todo el país por correo.
+Si estás en el exterior también — mandan por DHL."
+
+[Pausa]
+
+"El talle viene fiel. Si tenés dudas,
+en el sitio tienen una guía de talles."</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Cierre — segundos 22 a 28</div>
+        <div class="block-content script">VOZ: "El link está acá arriba."
+[Señala hacia el CTA sin mirar — sigue a cámara]
+
+[Pausa. Corte.]
+TEXTO FINAL: "hypestyle.com.ar"</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">CTA</div>
+        <div class="cta-row">
+          <span class="cta-pill primary">Ver más</span>
+          <span class="cta-pill">Verbal: señala arriba</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="block">
+        <div class="block-label">Setup de grabación</div>
+        <div class="variants-box">
+          <div class="variant-item"><strong>Cámara:</strong> teléfono en modo selfie o trípode a altura de ojos</div>
+          <div class="variant-item"><strong>Encuadre:</strong> busto — ni cara entera ni plano completo</div>
+          <div class="variant-item"><strong>Fondo:</strong> paredón liso, habitación ordenada, buena luz natural</div>
+          <div class="variant-item"><strong>Ropa:</strong> la persona tiene que usar una prenda Hypestyle (sin mencionarlo)</div>
+          <div class="variant-item"><strong>Luz:</strong> ventana lateral como única fuente — evitar luz de frente</div>
+          <div class="variant-item"><strong>Edición:</strong> jump cuts para eliminar silencios. No acelerar artificialmente.</div>
+          <div class="variant-item"><strong>Subtítulos:</strong> estilo CapCut con resaltado de palabra activa</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Clave de producción</div>
+        <div class="variants-box">
+          <div class="variant-item">Generar 2 versiones con 2 personas distintas — mismo guión base</div>
+          <div class="variant-item">Máximo 2 tomas — la segunda suele ser más natural que la primera</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-data">
+    <strong>Por qué funciona:</strong> "Pablo Reel cine" logró el CTR más alto de la cuenta (2.16%) con formato video. Un video hablado bien ejecutado puede replicar ese resultado con menor costo de producción.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- AD 12: POV + ACTING -->
+<!-- ═══════════════════════════════════════ -->
+<div class="ad-page">
+  <div class="ad-header">
+    <div>
+      <div class="ad-num-label">Formato 12 · Semana 3</div>
+      <div class="ad-title">POV + Acting</div>
+    </div>
+    <div class="ad-meta">
+      Video 20 seg · Reels<br>
+      Segmento: Hombres 18–26<br>
+      2 escenas a testear
+    </div>
+  </div>
+  <p class="ad-concept">Cámara subjetiva — el espectador es el protagonista. Una escena cotidiana que el target reconoce como propia. El acting tiene que ser mínimo: una acción concreta, no dramatismo.</p>
+
+  <div class="ad-body">
+    <div>
+      <div class="block">
+        <div class="block-label">Escena A — "El armario"</div>
+        <div class="block-content script">[Cámara subjetiva. El protagonista elige qué ponerse.]
+[Abre el armario. Nada le convence.]
+
+TEXTO: "yo eligiendo qué ponerme"
+
+[Saca la prenda de Hypestyle.]
+[Se la pone frente al espejo.]
+[Plano del espejo — se ve el resultado.]
+
+TEXTO: "outfit listo."
+
+TEXTO FINAL: "hypestyle.com.ar"</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Escena B — "El checkout"</div>
+        <div class="block-content script">[Cámara sobre el teléfono — la pantalla se ve.]
+[Carrito con producto Hypestyle, precio con descuento.]
+[El dedo toca "Confirmar pedido".]
+
+Satisfacción implícita. Sin voz.
+
+TEXTO: "ya está."
+
+TEXTO FINAL: "hypestyle.com.ar"</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">CTA</div>
+        <div class="cta-row">
+          <span class="cta-pill primary">Comprar ahora</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="block">
+        <div class="block-label">Claves del POV + acting</div>
+        <div class="variants-box">
+          <div class="variant-item"><strong>Acting mínimo:</strong> una acción, no dramatismo. Cortar antes de que sobre.</div>
+          <div class="variant-item"><strong>Ritmo:</strong> la escena tiene que ser reconocible en 3 segundos</div>
+          <div class="variant-item"><strong>El espectador:</strong> tiene que sentir que ESO le podría pasar a él</div>
+          <div class="variant-item"><strong>Duración:</strong> cortar antes de que el espectador anticipe el final</div>
+          <div class="variant-item"><strong>Texto en pantalla:</strong> pocas palabras, buena tipografía (Golos Text)</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Qué testear</div>
+        <div class="variants-box">
+          <div class="variant-item">Escena A vs Escena B — cuál convierte más en el segmento 18–26</div>
+          <div class="variant-item">Con y sin música de fondo — el silencio puede ser más efectivo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-data">
+    <strong>Por qué funciona:</strong> Los anuncios con CTR >1.7% tienen una narrativa clara en los primeros 3 segundos. El POV + acting establece contexto de inmediato, sin texto explicativo.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- AD 09: TESTIMONIAL / UGC -->
+<!-- ═══════════════════════════════════════ -->
+<div class="ad-page">
+  <div class="ad-header">
+    <div>
+      <div class="ad-num-label">Formato 09 · Semana 3–4</div>
+      <div class="ad-title">Testimonial / UGC</div>
+    </div>
+    <div class="ad-meta">
+      Video 30 seg · Reels + Stories<br>
+      Segmento: Lookalike / retargeting<br>
+      Cliente real o colaborador
+    </div>
+  </div>
+  <p class="ad-concept">Cliente real o colaborador hablando de su experiencia. Cámara de teléfono, ambiente real. Sin logo de la marca hasta el frame final — Meta trata el UGC sin marca como contenido orgánico y baja el CPM.</p>
+
+  <div class="ad-body">
+    <div>
+      <div class="block">
+        <div class="block-label">Hook — segundos 0 a 3</div>
+        <div class="block-content script">[Persona a cámara, ambiente real — cuarto, calle, balcón]
+
+VOZ (sus propias palabras):
+"Me compré algo en Hypestyle
+y te muestro cómo llegó."</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Estructura de desarrollo (no guión exacto)</div>
+        <div class="block-content script">— Muestra el packaging cuando llega
+— Abre el pedido en cámara
+— Se pone la prenda
+— Comenta UNA cosa concreta:
+   talle, calidad de tela, diseño, fit
+— Menciona el envío si fue rápido o llegó bien</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Cierre</div>
+        <div class="block-content script">Opción A:
+"El link está en el anuncio."
+
+Opción B (sin voz):
+Prenda puesta. Mira a cámara. Silencio.
+[El look habla solo]</div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">CTA</div>
+        <div class="cta-row">
+          <span class="cta-pill primary">Comprar ahora</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="block">
+        <div class="block-label">Brief para el cliente / colaborador</div>
+        <div class="variants-box">
+          <div class="variant-item"><strong>Tono:</strong> no guionar demasiado — tiene que sonar genuino</div>
+          <div class="variant-item"><strong>Evitar:</strong> frases tipo "me encantó" repetidas — hablar de algo específico</div>
+          <div class="variant-item"><strong>Logo:</strong> NO poner logo ni overlay durante el video — solo en el frame final</div>
+          <div class="variant-item"><strong>Calidad del video:</strong> no tiene que ser perfecta — la cámara del teléfono alcanza</div>
+          <div class="variant-item"><strong>Iluminación:</strong> que se vea bien la prenda — la luz natural es suficiente</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Qué pedir que mencionen</div>
+        <div class="variants-box">
+          <div class="variant-item">El talle — cómo queda (oversized, fiel, etc.)</div>
+          <div class="variant-item">La calidad de la tela o el acabado del estampado</div>
+          <div class="variant-item">El tiempo de entrega o el packaging</div>
+          <div class="variant-item">Algo concreto, no genérico</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-data">
+    <strong>Por qué funciona:</strong> Es el formato con mayor tasa de confianza en el segmento 18–30 que ya visitó el sitio y no compró. El UGC sin marca visible reduce la resistencia del usuario — no parece un anuncio hasta el final.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- AD 13: VIDEO HUMOR -->
+<!-- ═══════════════════════════════════════ -->
+<div class="ad-page">
+  <div class="ad-header">
+    <div>
+      <div class="ad-num-label">Formato 13 · Semana 4+</div>
+      <div class="ad-title">Video humor TikTok</div>
+    </div>
+    <div class="ad-meta">
+      Video 20 seg · Reels<br>
+      Segmento: 18–24 mixto<br>
+      Estilo: deadpan
+    </div>
+  </div>
+  <p class="ad-concept">Situación cotidiana llevada al absurdo. Deadpan — sin reacciones exageradas, sin efectos de sonido. El timing y el texto en pantalla son el chiste. No tiene que parecer un anuncio hasta el frame final.</p>
+
+  <div class="ad-body single">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px;">
+      <div>
+        <div class="block">
+          <div class="block-label">Guión A — "El dilema del outfit"</div>
+          <div class="block-content script">Protagonista mirando el armario.
+Cara de desesperación (exagerada, deadpan).
+
+TEXTO: "yo eligiendo qué ponerme para salir"
+
+[Pausa]
+
+[Armario lleno de ropa pero "nada para ponerse"]
+TEXTO: "nada."
+
+[Llega el paquete de Hypestyle]
+TEXTO: "..."
+
+[Se pone la prenda. Plano del espejo.]
+TEXTO: "listo."
+
+[FRAME FINAL]
+"hypestyle.com.ar"</div>
+        </div>
+      </div>
+      <div>
+        <div class="block">
+          <div class="block-label">Guión B — "El problema del envío"</div>
+          <div class="block-content script">Protagonista mirando el teléfono.
+Cara de angustia.
+
+TEXTO: "cuando comprás online
+       y no sabés si llega bien"
+
+[Pausa]
+
+[Suena la puerta. Repartidor con el paquete.]
+[Lo abre. Todo perfecto.]
+TEXTO: "llegó bien."
+
+[Pausa]
+
+TEXTO: "Hypestyle. Envíos a todo el país."
+
+[FRAME FINAL]
+"hypestyle.com.ar"</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-label">Claves del humor deadpan</div>
+      <div class="variants-box">
+        <div class="variant-item"><strong>Sin exagerar:</strong> la reacción tiene que ser casi nula — el contraste es el chiste</div>
+        <div class="variant-item"><strong>Timing:</strong> las pausas entre escenas son tan importantes como las escenas</div>
+        <div class="variant-item"><strong>Cortes rápidos:</strong> el ritmo hace el humor — no las actuaciones</div>
+        <div class="variant-item"><strong>Subtítulos:</strong> obligatorios — el texto en pantalla ES el chiste. Sin subtítulos no funciona.</div>
+        <div class="variant-item"><strong>Sin música graciosa:</strong> no usar efectos de sonido cómicos — eso lo arruina</div>
+        <div class="variant-item"><strong>El reveal:</strong> "Hypestyle" tiene que aparecer cuando ya se rieron — no antes</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-label">CTA</div>
+      <div class="cta-row">
+        <span class="cta-pill primary">Comprar ahora</span>
+        <span class="cta-pill">Frame final: hypestyle.com.ar</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-data">
+    <strong>Por qué funciona:</strong> El segmento 18–24 tiene el CPR más bajo de la cuenta ($10.352) y es el core del negocio. El humor nativo de Reels tiene menor skip rate — y si funciona, se comparte orgánicamente.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- GUÍA DE PRODUCCIÓN GENERAL -->
+<!-- ═══════════════════════════════════════ -->
+<div class="notes-page">
+  <span style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#999;display:block;margin-bottom:32px;">Guía general de producción</span>
+  <h2 style="font-size:28px;font-weight:400;letter-spacing:-0.01em;margin-bottom:8px;">Lo que aplica a todos los formatos.</h2>
+  <p style="font-size:14px;color:#555;margin-bottom:40px;line-height:1.7;">Reglas base del tono y la producción de Hypestyle. Válidas para cualquier formato.</p>
+
+  <div class="notes-grid">
+    <div class="note-card">
+      <div class="note-card-title">Tono — lo que Hypestyle es</div>
+      <ul>
+        <li><strong>Directo.</strong> Sin rodeos. El copy es conciso y funcional.</li>
+        <li><strong>Joven y urbano.</strong> Lenguaje informal pero no vulgar.</li>
+        <li><strong>Confiado, no arrogante.</strong> La estética habla por sí sola.</li>
+        <li><strong>Bilingüe ES/EN.</strong> Aspiración global.</li>
+      </ul>
+    </div>
+
+    <div class="note-card">
+      <div class="note-card-title">Tono — lo que Hypestyle NO hace</div>
+      <ul>
+        <li>No usa lenguaje corporativo ni formal</li>
+        <li>No sobre-explica los productos</li>
+        <li>No usa emojis en exceso ni clickbait</li>
+        <li>No dice "somos más que una marca..."</li>
+        <li>No usa exclamaciones: sin "¡" ni "!!!"</li>
+      </ul>
+    </div>
+
+    <div class="note-card">
+      <div class="note-card-title">El hook — regla de los 3 segundos</div>
+      <ul>
+        <li>Si no engancha en 3 segundos, el usuario desliza</li>
+        <li>No empezar con logo ni intro musical</li>
+        <li>Arrancar en el medio de la acción</li>
+        <li>El primer frame tiene que leerse en 1 segundo</li>
+        <li>La curiosidad es más efectiva que el shock</li>
+      </ul>
+    </div>
+
+    <div class="note-card">
+      <div class="note-card-title">Producción — estándares mínimos</div>
+      <ul>
+        <li>Subtítulos siempre (60–80% ve sin audio)</li>
+        <li>Ratio 9:16 para Reels y Stories</li>
+        <li>Ratio 4:5 o 1:1 para Feed</li>
+        <li>Música: máx 25–30% de volumen</li>
+        <li>Cortes: nunca más de 3 segundos en el mismo plano</li>
+      </ul>
+    </div>
+
+    <div class="note-card">
+      <div class="note-card-title">Benchmarks — cuándo pausar</div>
+      <ul>
+        <li>CTR por debajo de 0.9% → pausar y cambiar</li>
+        <li>Frecuencia por encima de 2.0 → rotar creativo</li>
+        <li>CPC por encima de $218 → revisar audiencia</li>
+        <li>Sin compras en los primeros $10.000 → pausar</li>
+      </ul>
+    </div>
+
+    <div class="note-card">
+      <div class="note-card-title">Testing — cómo priorizar</div>
+      <ul>
+        <li>Empezar por los formatos de menor producción</li>
+        <li>Siempre testear al menos 2 variantes por formato</li>
+        <li>Esperar mínimo 3–4 días antes de juzgar</li>
+        <li>El que gana → escalar presupuesto</li>
+        <li>El que pierde → pausar, no arreglar</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="margin-top:64px; padding-top:24px; border-top:1px solid #e0e0e0; display:flex; justify-content:space-between; align-items:center;">
+    <img src="imagenes/logo-hypestyle-2026 (1).png" alt="Hypestyle" style="height:24px; opacity:0.4;">
+    <div style="font-size:11px; color:#999; text-align:right; line-height:1.8;">
+      Ideas de contenido — Meta Ads · @hypestylearg<br>
+      Para Mica — Content Manager · Abril 2026
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
